@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para ti, amor 💛</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fffbe6;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .marco {
+      border: 5px solid #ffd700;
+      padding: 30px;
+      border-radius: 25px;
+      text-align: center;
+      background: #fff8dc;
+      box-shadow: 0 0 20px #ffd700;
+      position: relative;
+      z-index: 2;
+      max-width: 500px;
+    }
+
+    h1 {
+      color: #d4a017;
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .flores {
+      font-size: 3rem;
+      margin: 10px 0;
+      animation: flotar 3s infinite alternate;
+    }
+
+    @keyframes flotar {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-15px); }
+    }
+
+    /* Pétalos cayendo */
+    .petalo {
+      position: fixed;
+      top: -50px;
+      font-size: 2rem;
+      animation: caer 10s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes caer {
+      0% { transform: translateY(-50px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="marco">
+    <div class="flores">🌻🌼🌻</div>
+    <h1>Para ti, amor 💛</h1>
+    <p>
+      Mi vida hermosa, eres mi todo.<br>
+      Gracias por llenar mis días de luz y alegría.<br>
+      Siempre serás mi primavera eterna. 🌼💛
+    </p>
+    <div class="flores">🌻🌼🌻</div>
+  </div>
+
+  <!-- Música de fondo: cambia "musica.mp3" por tu canción -->
+  <audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Crear pétalos que caen
+    function crearPetalo() {
+      const petalo = document.createElement("div");
+      petalo.classList.add("petalo");
+      petalo.innerHTML = "🌼";
+
+      petalo.style.left = Math.random() * window.innerWidth + "px";
+      petalo.style.animationDuration = (6 + Math.random() * 5) + "s";
+
+      document.body.appendChild(petalo);
+
+      setTimeout(() => {
+        petalo.remove();
+      }, 10000);
+    }
+
+    setInterval(crearPetalo, 500);
+  </script>
+</body>
+</html>
