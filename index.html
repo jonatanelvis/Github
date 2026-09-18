@@ -1,0 +1,2307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6d5dfc">
+<title>MenteJoven • Bienestar emocional</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f8ff;
+  color:#20233a;
+  min-height:100vh;
+  padding-bottom:78px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e9e9f4;
+  box-shadow:0 4px 18px rgba(35,32,80,.06);
+}
+
+.header-inner{
+  max-width:1150px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+  color:#6254e8;
+}
+
+.logo small{
+  display:block;
+  font-size:10px;
+  color:#777a91;
+  font-weight:600;
+  margin-top:2px;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.app-section{
+  display:none;
+  animation:sectionIn .35s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.app-section.active{
+  display:block;
+}
+
+@keyframes sectionIn{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Fondos dinámicos */
+
+.app-section:not(#inicio)::before,
+.app-section:not(#inicio)::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(8px);
+  opacity:.35;
+  z-index:0;
+}
+
+.app-section:not(#inicio)::before{
+  width:320px;
+  height:320px;
+  top:-100px;
+  right:-80px;
+  background:#c8c0ff;
+  animation:sectionFloat1 10s ease-in-out infinite;
+}
+
+.app-section:not(#inicio)::after{
+  width:280px;
+  height:280px;
+  bottom:-90px;
+  left:-90px;
+  background:#b7eef0;
+  animation:sectionFloat2 12s ease-in-out infinite;
+}
+
+@keyframes sectionFloat1{
+  0%,100%{
+    transform:translate(0,0) scale(1);
+  }
+  50%{
+    transform:translate(-45px,35px) scale(1.12);
+  }
+}
+
+@keyframes sectionFloat2{
+  0%,100%{
+    transform:translate(0,0) scale(1);
+  }
+  50%{
+    transform:translate(40px,-30px) scale(1.1);
+  }
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:50px 20px;
+  position:relative;
+  z-index:2;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:10px;
+  font-size:30px;
+}
+
+.section-subtitle{
+  text-align:center;
+  color:#71758d;
+  max-width:720px;
+  margin:0 auto 30px;
+  line-height:1.6;
+}
+
+/* =========================
+   INICIO
+========================= */
+
+.hero{
+  min-height:calc(100vh - 70px);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:55px 20px 100px;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.28),transparent 28%),
+    radial-gradient(circle at 80% 25%,rgba(255,255,255,.20),transparent 25%),
+    linear-gradient(135deg,#6d5dfc 0%,#7b61ff 42%,#45b9c9 100%);
+  color:white;
+}
+
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  filter:blur(2px);
+  opacity:.25;
+  pointer-events:none;
+}
+
+.hero::before{
+  width:330px;
+  height:330px;
+  background:#fff;
+  left:-100px;
+  top:-80px;
+  animation:floatOne 9s ease-in-out infinite;
+}
+
+.hero::after{
+  width:390px;
+  height:390px;
+  background:#dffcff;
+  right:-130px;
+  bottom:-120px;
+  animation:floatTwo 11s ease-in-out infinite;
+}
+
+@keyframes floatOne{
+  0%,100%{
+    transform:translate(0,0) scale(1);
+  }
+  50%{
+    transform:translate(50px,35px) scale(1.08);
+  }
+}
+
+@keyframes floatTwo{
+  0%,100%{
+    transform:translate(0,0) scale(1);
+  }
+  50%{
+    transform:translate(-45px,-30px) scale(1.1);
+  }
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+}
+
+.hero-brain{
+  width:92px;
+  height:92px;
+  margin:0 auto 20px;
+  border-radius:28px;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:52px;
+  box-shadow:0 15px 45px rgba(25,20,90,.18);
+  backdrop-filter:blur(8px);
+  animation:brainFloat 4s ease-in-out infinite;
+}
+
+@keyframes brainFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+.hero h1{
+  font-size:clamp(42px,8vw,76px);
+  line-height:1;
+  margin-bottom:15px;
+  letter-spacing:-2px;
+}
+
+.hero-slogan{
+  font-size:clamp(18px,3vw,25px);
+  font-weight:700;
+  margin-bottom:25px;
+}
+
+.hero-welcome{
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:24px;
+  padding:25px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 18px 50px rgba(20,20,80,.15);
+}
+
+.hero-welcome h2{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.hero-welcome p{
+  line-height:1.65;
+  color:rgba(255,255,255,.93);
+}
+
+.search-box{
+  max-width:600px;
+  margin:25px auto 0;
+  position:relative;
+}
+
+.search-box input{
+  width:100%;
+  border:none;
+  outline:none;
+  padding:16px 52px 16px 20px;
+  border-radius:50px;
+  font-size:15px;
+  background:white;
+  color:#27283c;
+  box-shadow:0 10px 30px rgba(30,20,90,.18);
+}
+
+.search-icon{
+  position:absolute;
+  right:19px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:20px;
+  color:#6658eb;
+}
+
+.search-result{
+  margin-top:10px;
+  font-size:13px;
+  min-height:18px;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  background:rgba(255,255,255,.90);
+  border-radius:20px;
+  padding:24px;
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 8px 25px rgba(35,32,80,.07);
+  transition:.25s;
+  backdrop-filter:blur(8px);
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(35,32,80,.13);
+}
+
+.card-icon{
+  font-size:38px;
+  margin-bottom:13px;
+}
+
+.card h3{
+  margin-bottom:9px;
+  color:#343654;
+}
+
+.card p{
+  color:#6d7085;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.topic-card{
+  cursor:pointer;
+}
+
+.topic-card.encontrado{
+  outline:3px solid #7c6cff;
+  transform:translateY(-4px);
+}
+
+/* =========================
+   SALUD MENTAL
+========================= */
+
+#salud{
+  background:
+    radial-gradient(circle at 10% 20%,rgba(124,92,255,.13),transparent 30%),
+    radial-gradient(circle at 90% 80%,rgba(56,190,190,.15),transparent 30%),
+    linear-gradient(145deg,#f7f5ff,#effdff);
+}
+
+#salud .container{
+  min-height:calc(100vh - 70px);
+}
+
+.info-box{
+  background:rgba(255,255,255,.82);
+  border-radius:28px;
+  padding:32px;
+  margin-bottom:30px;
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow:0 15px 40px rgba(54,45,130,.08);
+  backdrop-filter:blur(12px);
+}
+
+.info-box h3{
+  color:#6254e8;
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+.info-box p{
+  line-height:1.7;
+  color:#5f6278;
+}
+
+/* =========================
+   TEMAS
+========================= */
+
+#temas{
+  background:
+    radial-gradient(circle at 85% 15%,rgba(255,208,229,.32),transparent 27%),
+    radial-gradient(circle at 15% 80%,rgba(190,240,230,.38),transparent 30%),
+    linear-gradient(135deg,#fdfaff,#f3fbff);
+}
+
+#temas .container{
+  min-height:calc(100vh - 70px);
+}
+
+/* =========================
+   VIDEOS
+========================= */
+
+#videos{
+  background:
+    radial-gradient(circle at 15% 20%,rgba(110,96,255,.25),transparent 28%),
+    radial-gradient(circle at 90% 80%,rgba(46,190,201,.20),transparent 30%),
+    linear-gradient(135deg,#17182f,#24265a,#173d55);
+  color:white;
+}
+
+#videos::before{
+  background:#756aff;
+  opacity:.22;
+}
+
+#videos::after{
+  background:#4bd5d8;
+  opacity:.20;
+}
+
+#videos .section-title{
+  color:white;
+}
+
+#videos .section-subtitle{
+  color:rgba(255,255,255,.76);
+}
+
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.video-card{
+  background:rgba(255,255,255,.96);
+  color:#20233a;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.5);
+  box-shadow:0 15px 40px rgba(0,0,0,.22);
+}
+
+.video-preview{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#111323;
+  cursor:pointer;
+}
+
+.video-preview img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .35s ease;
+}
+
+.video-preview:hover img{
+  transform:scale(1.05);
+}
+
+.video-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(
+    rgba(10,10,25,.12),
+    rgba(10,10,25,.45)
+  );
+}
+
+.play-button{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:#ff1744;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  padding-left:4px;
+  box-shadow:0 8px 30px rgba(0,0,0,.35);
+  transition:.25s;
+}
+
+.video-preview:hover .play-button{
+  transform:scale(1.12);
+  background:#ff0038;
+}
+
+.youtube-label{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  background:rgba(0,0,0,.72);
+  color:white;
+  padding:7px 11px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.video-info{
+  padding:20px;
+}
+
+.video-info h3{
+  font-size:18px;
+  margin-bottom:9px;
+  color:#343654;
+}
+
+.video-info p{
+  font-size:14px;
+  color:#71758a;
+  line-height:1.55;
+}
+
+.video-tag{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:6px 10px;
+  border-radius:30px;
+  background:#eeeaff;
+  color:#6254e8;
+  font-size:12px;
+  font-weight:700;
+}
+
+.video-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  margin-top:16px;
+  padding:13px 16px;
+  border-radius:12px;
+  background:#6355e8;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+  box-shadow:0 7px 18px rgba(99,85,232,.20);
+  transition:.2s;
+}
+
+.video-btn:hover{
+  transform:translateY(-2px);
+  background:#5547db;
+}
+
+.video-notice{
+  margin-top:25px;
+  padding:18px;
+  border-radius:16px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.88);
+  font-size:13px;
+  line-height:1.6;
+  backdrop-filter:blur(8px);
+}
+
+/* =========================
+   AYUDA
+========================= */
+
+#ayuda{
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,150,180,.18),transparent 28%),
+    radial-gradient(circle at 90% 75%,rgba(145,120,255,.18),transparent 30%),
+    linear-gradient(135deg,#fff7f8,#f6f2ff,#effcff);
+}
+
+#ayuda .container{
+  min-height:calc(100vh - 70px);
+}
+
+.help-main{
+  background:rgba(255,255,255,.83);
+  border-radius:28px;
+  padding:32px;
+  text-align:center;
+  margin-bottom:25px;
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 15px 40px rgba(90,55,100,.09);
+  backdrop-filter:blur(12px);
+}
+
+.help-main h3{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.help-main p{
+  color:#6f7286;
+  line-height:1.6;
+}
+
+.call-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-top:18px;
+  background:#6355e8;
+  color:white;
+  text-decoration:none;
+  padding:13px 20px;
+  border-radius:13px;
+  font-weight:700;
+  box-shadow:0 8px 20px rgba(99,85,232,.2);
+  transition:.2s;
+}
+
+.call-btn:hover{
+  transform:translateY(-2px);
+}
+
+.emergency-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.emergency-card{
+  background:rgba(255,255,255,.88);
+  border-radius:20px;
+  padding:20px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow:0 10px 28px rgba(35,32,80,.07);
+  backdrop-filter:blur(8px);
+}
+
+.emergency-card .number{
+  font-size:28px;
+  font-weight:800;
+  color:#d8495d;
+  margin:8px 0;
+}
+
+.emergency-card p{
+  color:#73768a;
+  font-size:13px;
+  min-height:35px;
+}
+
+.emergency-card a{
+  display:inline-block;
+  margin-top:12px;
+  background:#f2f1ff;
+  color:#5e51d9;
+  text-decoration:none;
+  padding:9px 14px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:13px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:500;
+  background:rgba(15,16,35,.72);
+  padding:20px;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(5px);
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  background:white;
+  width:100%;
+  max-width:650px;
+  max-height:90vh;
+  overflow:auto;
+  border-radius:25px;
+  padding:30px;
+  position:relative;
+  animation:modalIn .25s ease;
+}
+
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:scale(.94) translateY(15px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+.close-modal{
+  position:absolute;
+  right:15px;
+  top:13px;
+  border:none;
+  background:#f0f0f7;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.modal-illustration{
+  font-size:60px;
+  text-align:center;
+  margin:5px 0 15px;
+}
+
+.modal-box h2{
+  text-align:center;
+  color:#6254e8;
+  margin-bottom:22px;
+}
+
+.detail-block{
+  background:#f7f7fc;
+  border-radius:16px;
+  padding:17px;
+  margin-bottom:13px;
+}
+
+.detail-block h3{
+  font-size:16px;
+  margin-bottom:7px;
+  color:#3d3f5b;
+}
+
+.detail-block p{
+  font-size:14px;
+  line-height:1.65;
+  color:#666a7d;
+}
+
+.tip{
+  background:#eefcf6;
+  border-left:4px solid #36ad78;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+  padding:30px 20px;
+  color:#777a8f;
+  font-size:12px;
+  line-height:1.6;
+  background:#f7f8ff;
+}
+
+/* =========================
+   MENÚ
+========================= */
+
+.bottom-nav{
+  position:fixed;
+  z-index:300;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(15px);
+  border-top:1px solid #e6e6ef;
+  box-shadow:0 -6px 25px rgba(25,25,70,.08);
+  display:flex;
+  justify-content:center;
+}
+
+.nav-inner{
+  width:100%;
+  max-width:650px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+}
+
+.nav-btn{
+  border:none;
+  background:transparent;
+  padding:9px 4px 8px;
+  color:#777a90;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:600;
+}
+
+.nav-btn .nav-icon{
+  display:block;
+  font-size:22px;
+  margin-bottom:3px;
+}
+
+.nav-btn.active{
+  color:#6355e8;
+}
+
+.nav-btn.active .nav-icon{
+  transform:translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:850px){
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .emergency-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:650px){
+
+  .header-inner{
+    justify-content:center;
+  }
+
+  .grid,
+  .video-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    min-height:calc(100vh - 60px);
+    padding-top:35px;
+  }
+
+  .hero h1{
+    font-size:46px;
+  }
+
+  .hero-welcome{
+    padding:20px;
+  }
+
+  .hero-welcome h2{
+    font-size:24px;
+  }
+
+  .container{
+    padding:35px 15px;
+  }
+
+  .section-title{
+    font-size:27px;
+  }
+
+  .emergency-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .modal-box{
+    padding:24px 18px;
+  }
+
+}
+
+@media(max-width:400px){
+
+  .emergency-grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav-btn{
+    font-size:10px;
+  }
+
+  .nav-btn .nav-icon{
+    font-size:20px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      🧠 MenteJoven
+      <small>Tu salud mental también importa.</small>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<section class="app-section active" id="inicio">
+
+  <div class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-brain">
+        🧠
+      </div>
+
+      <h1>MenteJoven</h1>
+
+      <div class="hero-slogan">
+        Tu salud mental también importa.
+      </div>
+
+      <div class="hero-welcome">
+
+        <h2>Bienvenido a MenteJoven 💜</h2>
+
+        <p>
+          Un espacio creado para adolescentes y jóvenes donde puedes
+          encontrar información clara, educativa y sencilla sobre salud
+          mental y bienestar emocional.
+        </p>
+
+        <div class="search-box">
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Buscar un tema..."
+            autocomplete="off"
+          >
+
+          <span class="search-icon">🔍</span>
+
+          <div class="search-result" id="searchResult"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SALUD MENTAL
+========================= -->
+
+<section class="app-section" id="salud">
+
+  <div class="container">
+
+    <h2 class="section-title">🧠 Salud mental</h2>
+
+    <p class="section-subtitle">
+      Conocer cómo funciona nuestra salud mental es un primer paso
+      para aprender a cuidarnos y reconocer cuándo necesitamos apoyo.
+    </p>
+
+    <div class="info-box">
+
+      <h3>¿Qué es la salud mental?</h3>
+
+      <p>
+        La salud mental forma parte de nuestro bienestar general.
+        Está relacionada con la manera en que pensamos, sentimos,
+        afrontamos las situaciones de la vida y nos relacionamos
+        con otras personas.
+      </p>
+
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-icon">💭</div>
+        <h3>Pensamientos</h3>
+        <p>
+          Nuestros pensamientos pueden influir en nuestras emociones
+          y en la forma en que reaccionamos ante diferentes situaciones.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">❤️</div>
+        <h3>Emociones</h3>
+        <p>
+          Todas las emociones cumplen una función. Aprender a reconocerlas
+          y expresarlas de manera saludable es importante.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Relaciones</h3>
+        <p>
+          Contar con personas de confianza y mantener relaciones respetuosas
+          puede contribuir al bienestar emocional.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h3>Hábitos saludables</h3>
+        <p>
+          Dormir adecuadamente, alimentarse bien, realizar actividad física
+          y tener momentos de descanso favorecen nuestro bienestar.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🗣️</div>
+        <h3>Hablar ayuda</h3>
+        <p>
+          Hablar con alguien de confianza puede ser un primer paso
+          cuando estamos pasando por una situación difícil.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🆘</div>
+        <h3>Pedir ayuda</h3>
+        <p>
+          Buscar orientación profesional no significa ser débil.
+          Significa reconocer que nuestra salud también merece atención.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     TEMAS
+========================= -->
+
+<section class="app-section" id="temas">
+
+  <div class="container">
+
+    <h2 class="section-title">🌱 Bienestar emocional</h2>
+
+    <p class="section-subtitle">
+      Explora nuestros temas y descubre información, recomendaciones
+      y señales que pueden ayudarte a comprender mejor tus emociones.
+    </p>
+
+    <div class="grid">
+
+      <div class="card topic-card"
+           data-topic="ansiedad"
+           onclick="openTopic('ansiedad')">
+        <div class="card-icon">😟</div>
+        <h3>Ansiedad</h3>
+        <p>
+          Aprende qué es, cuáles son sus señales y qué puedes hacer
+          cuando sientes preocupación o nerviosismo.
+        </p>
+      </div>
+
+      <div class="card topic-card"
+           data-topic="estres"
+           onclick="openTopic('estres')">
+        <div class="card-icon">😣</div>
+        <h3>Estrés</h3>
+        <p>
+          Conoce cómo identificar el estrés y algunas estrategias
+          para afrontarlo de manera saludable.
+        </p>
+      </div>
+
+      <div class="card topic-card"
+           data-topic="tristeza"
+           onclick="openTopic('tristeza')">
+        <div class="card-icon">😢</div>
+        <h3>Tristeza y estado de ánimo</h3>
+        <p>
+          Comprende los cambios de ánimo y cuándo es importante
+          buscar apoyo.
+        </p>
+      </div>
+
+      <div class="card topic-card"
+           data-topic="autoestima"
+           onclick="openTopic('autoestima')">
+        <div class="card-icon">💭</div>
+        <h3>Autoestima</h3>
+        <p>
+          Aprende a reconocer cómo te valoras y algunas formas
+          de fortalecer una relación positiva contigo.
+        </p>
+      </div>
+
+      <div class="card topic-card"
+           data-topic="sueno"
+           onclick="openTopic('sueno')">
+        <div class="card-icon">😴</div>
+        <h3>Sueño</h3>
+        <p>
+          Descubre por qué dormir bien es importante para tu cuerpo,
+          concentración y bienestar emocional.
+        </p>
+      </div>
+
+      <div class="card topic-card"
+           data-topic="bullying"
+           onclick="openTopic('bullying')">
+        <div class="card-icon">🤝</div>
+        <h3>Bullying</h3>
+        <p>
+          Identifica diferentes formas de acoso y conoce qué hacer
+          si tú o alguien cercano está pasando por ello.
+        </p>
+      </div>
+
+      <div class="card topic-card"
+           data-topic="relaciones"
+           onclick="openTopic('relaciones')">
+        <div class="card-icon">❤️</div>
+        <h3>Relaciones saludables</h3>
+        <p>
+          Aprende sobre respeto, comunicación, confianza y límites
+          dentro de las relaciones.
+        </p>
+      </div>
+
+      <div class="card topic-card"
+           data-topic="redes"
+           onclick="openTopic('redes')">
+        <div class="card-icon">📱</div>
+        <h3>Redes sociales</h3>
+        <p>
+          Reflexiona sobre el uso de las redes sociales y su relación
+          con nuestro bienestar emocional.
+        </p>
+      </div>
+
+      <div class="card topic-card"
+           data-topic="bienestar"
+           onclick="openTopic('bienestar')">
+        <div class="card-icon">🌱</div>
+        <h3>Bienestar emocional</h3>
+        <p>
+          Conoce pequeños hábitos que pueden ayudarte a cuidar
+          tu equilibrio emocional.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     VIDEOS
+========================= -->
+
+<section class="app-section" id="videos">
+
+  <div class="container">
+
+    <h2 class="section-title">🎥 Videos</h2>
+
+    <p class="section-subtitle">
+      Videos educativos para comprender mejor diferentes temas
+      relacionados con la salud mental y el bienestar emocional.
+    </p>
+
+    <div class="video-grid">
+
+      <!-- VIDEO 1 -->
+
+      <div class="video-card">
+
+        <a
+          class="video-preview"
+          href="https://www.youtube.com/watch?v=S1g1cQjUguI"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <img
+            src="https://img.youtube.com/vi/S1g1cQjUguI/hqdefault.jpg"
+            alt="Todo lo que necesitas saber sobre la ansiedad">
+
+          <div class="video-overlay">
+            <div class="play-button">▶</div>
+          </div>
+
+          <span class="youtube-label">
+            ▶ Ver en YouTube
+          </span>
+
+        </a>
+
+        <div class="video-info">
+
+          <span class="video-tag">😟 Ansiedad</span>
+
+          <h3>
+            Todo lo que necesitas saber sobre la ansiedad
+          </h3>
+
+          <p>
+            Video educativo para conocer mejor la ansiedad,
+            sus características y algunas formas de comprenderla.
+          </p>
+
+          <a
+            class="video-btn"
+            href="https://www.youtube.com/watch?v=S1g1cQjUguI"
+            target="_blank"
+            rel="noopener noreferrer">
+            ▶️ Ver video
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- VIDEO 2 -->
+
+      <div class="video-card">
+
+        <a
+          class="video-preview"
+          href="https://www.youtube.com/watch?v=LOhBQvH53pE"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <img
+            src="https://img.youtube.com/vi/LOhBQvH53pE/hqdefault.jpg"
+            alt="Diferenciar estrés y ansiedad">
+
+          <div class="video-overlay">
+            <div class="play-button">▶</div>
+          </div>
+
+          <span class="youtube-label">
+            ▶ Ver en YouTube
+          </span>
+
+        </a>
+
+        <div class="video-info">
+
+          <span class="video-tag">😣 Estrés</span>
+
+          <h3>
+            Diferenciar estrés y ansiedad
+          </h3>
+
+          <p>
+            Aprende algunas diferencias entre el estrés y la ansiedad
+            para comprender mejor lo que puedes estar experimentando.
+          </p>
+
+          <a
+            class="video-btn"
+            href="https://www.youtube.com/watch?v=LOhBQvH53pE"
+            target="_blank"
+            rel="noopener noreferrer">
+            ▶️ Ver video
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- VIDEO 3 -->
+
+      <div class="video-card">
+
+        <a
+          class="video-preview"
+          href="https://www.youtube.com/watch?v=CTHlp6_ixMQ"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <img
+            src="https://img.youtube.com/vi/CTHlp6_ixMQ/hqdefault.jpg"
+            alt="La autoestima">
+
+          <div class="video-overlay">
+            <div class="play-button">▶</div>
+          </div>
+
+          <span class="youtube-label">
+            ▶ Ver en YouTube
+          </span>
+
+        </a>
+
+        <div class="video-info">
+
+          <span class="video-tag">💭 Autoestima</span>
+
+          <h3>
+            La autoestima
+          </h3>
+
+          <p>
+            Contenido educativo para reflexionar sobre la autoestima
+            y la manera en que nos valoramos.
+          </p>
+
+          <a
+            class="video-btn"
+            href="https://www.youtube.com/watch?v=CTHlp6_ixMQ"
+            target="_blank"
+            rel="noopener noreferrer">
+            ▶️ Ver video
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- VIDEO 4 -->
+
+      <div class="video-card">
+
+        <a
+          class="video-preview"
+          href="https://www.youtube.com/watch?v=22-my7Wl_uA"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <img
+            src="https://img.youtube.com/vi/22-my7Wl_uA/hqdefault.jpg"
+            alt="Primeros auxilios psicológicos">
+
+          <div class="video-overlay">
+            <div class="play-button">▶</div>
+          </div>
+
+          <span class="youtube-label">
+            ▶ Ver en YouTube
+          </span>
+
+        </a>
+
+        <div class="video-info">
+
+          <span class="video-tag">❤️ Bienestar</span>
+
+          <h3>
+            Primeros auxilios psicológicos
+          </h3>
+
+          <p>
+            Introducción a los primeros auxilios psicológicos
+            y a la importancia de brindar apoyo emocional.
+          </p>
+
+          <a
+            class="video-btn"
+            href="https://www.youtube.com/watch?v=22-my7Wl_uA"
+            target="_blank"
+            rel="noopener noreferrer">
+            ▶️ Ver video
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- VIDEO 5 -->
+
+      <div class="video-card">
+
+        <a
+          class="video-preview"
+          href="https://www.youtube.com/watch?v=6LiMuJkp2Ig"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <img
+            src="https://img.youtube.com/vi/6LiMuJkp2Ig/hqdefault.jpg"
+            alt="Cómo afecta el estrés a su cuerpo">
+
+          <div class="video-overlay">
+            <div class="play-button">▶</div>
+          </div>
+
+          <span class="youtube-label">
+            ▶ Ver en YouTube
+          </span>
+
+        </a>
+
+        <div class="video-info">
+
+          <span class="video-tag">🧠 Estrés</span>
+
+          <h3>
+            Cómo afecta el estrés a su cuerpo
+          </h3>
+
+          <p>
+            Explicación educativa sobre algunos efectos que el estrés
+            puede tener en nuestro organismo.
+          </p>
+
+          <a
+            class="video-btn"
+            href="https://www.youtube.com/watch?v=6LiMuJkp2Ig"
+            target="_blank"
+            rel="noopener noreferrer">
+            ▶️ Ver video
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- VIDEO 6 -->
+
+      <div class="video-card">
+
+        <a
+          class="video-preview"
+          href="https://www.youtube.com/watch?v=X1hU8ZeCEAU"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <img
+            src="https://img.youtube.com/vi/X1hU8ZeCEAU/hqdefault.jpg"
+            alt="Cómo manejar el estrés">
+
+          <div class="video-overlay">
+            <div class="play-button">▶</div>
+          </div>
+
+          <span class="youtube-label">
+            ▶ Ver en YouTube
+          </span>
+
+        </a>
+
+        <div class="video-info">
+
+          <span class="video-tag">🌱 Manejo emocional</span>
+
+          <h3>
+            Cómo manejar el estrés
+          </h3>
+
+          <p>
+            Video en español con orientación general sobre cómo
+            afrontar el estrés, la ansiedad y el estado de ánimo.
+          </p>
+
+          <a
+            class="video-btn"
+            href="https://www.youtube.com/watch?v=X1hU8ZeCEAU"
+            target="_blank"
+            rel="noopener noreferrer">
+            ▶️ Ver video
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="video-notice">
+      ℹ️ Los videos son recursos educativos. Al seleccionar un video,
+      se abrirá YouTube para permitir su reproducción correctamente.
+      Si estás atravesando una situación que afecta significativamente
+      tu bienestar, considera hablar con un profesional de salud mental.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     AYUDA
+========================= -->
+
+<section class="app-section" id="ayuda">
+
+  <div class="container">
+
+    <h2 class="section-title">🆘 Necesito ayuda</h2>
+
+    <p class="section-subtitle">
+      Si estás pasando por un momento difícil, no tienes que afrontarlo
+      completamente solo. Puedes buscar orientación y apoyo.
+    </p>
+
+    <div class="help-main">
+
+      <h3>
+        ¿Necesitas hablar con un profesional? 💜
+      </h3>
+
+      <p>
+        En Perú puedes comunicarte gratuitamente con la Línea 113
+        y seleccionar la opción 5 para orientación y apoyo psicológico.
+      </p>
+
+      <a class="call-btn" href="tel:113">
+        📞 Llamar al 113
+      </a>
+
+      <p style="margin-top:12px;font-size:12px;">
+        Al llamar, selecciona la opción 5.
+      </p>
+
+    </div>
+
+
+    <div class="emergency-grid">
+
+      <div class="emergency-card">
+        <div style="font-size:35px;">🚑</div>
+        <div class="number">106</div>
+        <p>SAMU<br>Emergencias médicas</p>
+        <a href="tel:106">📞 Llamar</a>
+      </div>
+
+      <div class="emergency-card">
+        <div style="font-size:35px;">👮</div>
+        <div class="number">105</div>
+        <p>Policía Nacional<br>Emergencias</p>
+        <a href="tel:105">📞 Llamar</a>
+      </div>
+
+      <div class="emergency-card">
+        <div style="font-size:35px;">🚒</div>
+        <div class="number">116</div>
+        <p>Bomberos<br>Emergencias</p>
+        <a href="tel:116">📞 Llamar</a>
+      </div>
+
+      <div class="emergency-card">
+        <div style="font-size:35px;">❤️</div>
+        <div class="number">100</div>
+        <p>Orientación ante<br>violencia familiar/sexual</p>
+        <a href="tel:100">📞 Llamar</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <strong>🧠 MenteJoven</strong><br>
+
+  Tu salud mental también importa.
+
+  <br><br>
+
+  Información educativa y de orientación.
+  No sustituye la evaluación, diagnóstico o tratamiento
+  de un profesional de salud.
+
+  <br><br>
+
+  © 2026 MenteJoven
+
+</footer>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div class="modal" id="topicModal">
+
+  <div class="modal-box">
+
+    <button class="close-modal" onclick="closeTopic()">
+      ×
+    </button>
+
+    <div class="modal-illustration" id="modalIcon"></div>
+
+    <h2 id="modalTitle"></h2>
+
+    <div id="modalContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     MENÚ INFERIOR
+========================= -->
+
+<nav class="bottom-nav">
+
+  <div class="nav-inner">
+
+    <button class="nav-btn active"
+            data-section="inicio"
+            onclick="showSection('inicio',this)">
+      <span class="nav-icon">🏠</span>
+      Inicio
+    </button>
+
+    <button class="nav-btn"
+            data-section="salud"
+            onclick="showSection('salud',this)">
+      <span class="nav-icon">🧠</span>
+      Salud
+    </button>
+
+    <button class="nav-btn"
+            data-section="temas"
+            onclick="showSection('temas',this)">
+      <span class="nav-icon">📚</span>
+      Temas
+    </button>
+
+    <button class="nav-btn"
+            data-section="videos"
+            onclick="showSection('videos',this)">
+      <span class="nav-icon">🎥</span>
+      Videos
+    </button>
+
+    <button class="nav-btn"
+            data-section="ayuda"
+            onclick="showSection('ayuda',this)">
+      <span class="nav-icon">🆘</span>
+      Ayuda
+    </button>
+
+  </div>
+
+</nav>
+
+
+<script>
+
+/* =========================
+   CAMBIO DE SECCIONES
+========================= */
+
+function showSection(sectionId, button){
+
+  document.querySelectorAll('.app-section')
+    .forEach(section => {
+      section.classList.remove('active');
+    });
+
+  const section =
+    document.getElementById(sectionId);
+
+  if(section){
+    section.classList.add('active');
+  }
+
+  document.querySelectorAll('.nav-btn')
+    .forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+  if(button){
+    button.classList.add('active');
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchResult').textContent = '';
+
+  document.querySelectorAll('.topic-card')
+    .forEach(card => {
+      card.classList.remove('encontrado');
+    });
+}
+
+
+/* =========================
+   NORMALIZAR
+========================= */
+
+function normalizarTexto(texto){
+
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"");
+
+}
+
+
+/* =========================
+   BUSCADOR
+========================= */
+
+const searchInput =
+  document.getElementById('searchInput');
+
+const searchResult =
+  document.getElementById('searchResult');
+
+searchInput.addEventListener('input',function(){
+
+  const texto =
+    normalizarTexto(this.value.trim());
+
+  document.querySelectorAll('.topic-card')
+    .forEach(card => {
+      card.classList.remove('encontrado');
+    });
+
+  if(!texto){
+
+    searchResult.textContent='';
+
+    return;
+  }
+
+  const cards =
+    Array.from(document.querySelectorAll('.topic-card'));
+
+  const encontrado =
+    cards.find(card => {
+
+      const titulo =
+        normalizarTexto(
+          card.querySelector('h3').textContent
+        );
+
+      const contenido =
+        normalizarTexto(card.textContent);
+
+      return titulo.includes(texto) ||
+             contenido.includes(texto);
+
+    });
+
+
+  if(encontrado){
+
+    showSection(
+      'temas',
+      document.querySelector('[data-section="temas"]')
+    );
+
+    encontrado.classList.add('encontrado');
+
+    encontrado.scrollIntoView({
+      behavior:'smooth',
+      block:'center'
+    });
+
+    searchResult.textContent =
+      '✅ Tema encontrado.';
+
+  }else{
+
+    searchResult.textContent =
+      'No encontramos ese tema. Prueba con ansiedad, estrés, autoestima, sueño, bullying o bienestar.';
+
+  }
+
+});
+
+
+/* =========================
+   TEMAS
+========================= */
+
+const topics = {
+
+  ansiedad:{
+    icon:'😟',
+    title:'Ansiedad',
+    content:`
+
+      <div class="detail-block">
+        <h3>¿Qué es?</h3>
+        <p>
+          La ansiedad es una respuesta emocional que puede aparecer
+          cuando sentimos preocupación, miedo o incertidumbre.
+          En determinados momentos puede ser una reacción normal,
+          pero cuando es muy intensa o interfiere con la vida diaria
+          puede ser importante buscar orientación.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Señales o características</h3>
+        <p>
+          Preocupación constante, nerviosismo, pensamientos repetitivos,
+          dificultad para concentrarse, tensión, sensación de peligro
+          o manifestaciones físicas como palpitaciones.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Ejemplo cotidiano</h3>
+        <p>
+          Antes de una exposición puedes sentir nervios o preocupación.
+          Estas emociones pueden disminuir después de afrontar la situación.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>¿Qué puedes hacer?</h3>
+        <p>
+          Respirar lentamente, organizar tus actividades, dormir lo suficiente,
+          hablar con alguien de confianza y buscar momentos de descanso.
+        </p>
+      </div>
+
+      <div class="detail-block tip">
+        <h3>💡 Recuerda</h3>
+        <p>
+          No tienes que enfrentar todo solo. Si la ansiedad afecta
+          considerablemente tus actividades, estudios, relaciones o descanso,
+          considera buscar ayuda profesional.
+        </p>
+      </div>
+
+    `
+  },
+
+
+  estres:{
+    icon:'😣',
+    title:'Estrés',
+    content:`
+
+      <div class="detail-block">
+        <h3>¿Qué es?</h3>
+        <p>
+          El estrés es una respuesta del organismo ante situaciones
+          que percibimos como exigentes, difíciles o amenazantes.
+          Una cantidad moderada puede ayudarnos a responder a determinadas
+          responsabilidades, pero el estrés intenso o prolongado puede afectar
+          nuestro bienestar.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Señales</h3>
+        <p>
+          Cansancio, irritabilidad, dificultad para dormir,
+          preocupación, tensión muscular, dificultad para concentrarse
+          y sensación de estar sobrecargado.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Ejemplo cotidiano</h3>
+        <p>
+          Tener varios trabajos académicos pendientes y sentir que
+          no tienes tiempo suficiente para realizarlos puede generar estrés.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>¿Qué puedes hacer?</h3>
+        <p>
+          Organiza tus tareas por prioridad, toma descansos,
+          mantén horarios de sueño, realiza actividad física,
+          respira lentamente y conversa con alguien de confianza.
+        </p>
+      </div>
+
+      <div class="detail-block tip">
+        <h3>💡 Recuerda</h3>
+        <p>
+          Si el estrés es constante y empieza a afectar tu vida diaria,
+          es recomendable buscar orientación profesional.
+        </p>
+      </div>
+
+    `
+  },
+
+
+  tristeza:{
+    icon:'😢',
+    title:'Tristeza y estado de ánimo',
+    content:`
+
+      <div class="detail-block">
+        <h3>¿Qué es?</h3>
+        <p>
+          La tristeza es una emoción humana que puede aparecer ante pérdidas,
+          decepciones, cambios o situaciones difíciles.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Señales</h3>
+        <p>
+          Falta de energía, ganas de llorar, aislamiento,
+          pérdida de interés en algunas actividades o cambios en el sueño.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>¿Qué puedes hacer?</h3>
+        <p>
+          Hablar con una persona de confianza, mantener algunas rutinas,
+          descansar, realizar actividades agradables y permitirte expresar
+          lo que estás sintiendo.
+        </p>
+      </div>
+
+      <div class="detail-block tip">
+        <h3>💡 Importante</h3>
+        <p>
+          Si la tristeza es intensa, dura mucho tiempo o aparecen pensamientos
+          de hacerte daño, busca ayuda profesional inmediatamente.
+        </p>
+      </div>
+
+    `
+  },
+
+
+  autoestima:{
+    icon:'💭',
+    title:'Autoestima',
+    content:`
+
+      <div class="detail-block">
+        <h3>¿Qué es?</h3>
+        <p>
+          La autoestima está relacionada con la manera en que nos valoramos,
+          aceptamos y reconocemos nuestras capacidades y dificultades.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Señales de autoestima afectada</h3>
+        <p>
+          Compararte constantemente con otras personas, pensar que no eres
+          suficiente, tener miedo excesivo a equivocarte o minimizar tus logros.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>¿Cómo fortalecerla?</h3>
+        <p>
+          Reconoce tus pequeños logros, evita compararte constantemente,
+          aprende de tus errores y trata de hablar contigo mismo
+          de una manera respetuosa.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Ejercicio</h3>
+        <p>
+          Escribe tres cosas que hayas conseguido recientemente,
+          aunque parezcan pequeñas. Reconocer tus avances también es importante.
+        </p>
+      </div>
+
+      <div class="detail-block tip">
+        <h3>💡 Recuerda</h3>
+        <p>
+          Tu valor como persona no depende de tus calificaciones,
+          apariencia, número de seguidores o aprobación de otras personas.
+        </p>
+      </div>
+
+    `
+  },
+
+
+  sueno:{
+    icon:'😴',
+    title:'Sueño',
+    content:`
+
+      <div class="detail-block">
+        <h3>¿Por qué es importante?</h3>
+        <p>
+          Dormir adecuadamente ayuda a la recuperación del organismo,
+          la concentración, el aprendizaje y la regulación emocional.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Señales de un mal descanso</h3>
+        <p>
+          Cansancio durante el día, dificultad para concentrarte,
+          irritabilidad, sueño durante las actividades y problemas
+          para mantener horarios regulares.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Hábitos que pueden ayudar</h3>
+        <p>
+          Mantener horarios regulares, reducir el uso de pantallas antes
+          de dormir, evitar estimulantes cerca de la hora de descanso
+          y preparar un ambiente tranquilo.
+        </p>
+      </div>
+
+      <div class="detail-block tip">
+        <h3>💡 Recuerda</h3>
+        <p>
+          Si tienes problemas persistentes de sueño, considera conversar
+          con un profesional de salud.
+        </p>
+      </div>
+
+    `
+  },
+
+
+  bullying:{
+    icon:'🤝',
+    title:'Bullying',
+    content:`
+
+      <div class="detail-block">
+        <h3>¿Qué es?</h3>
+        <p>
+          El bullying o acoso escolar comprende conductas agresivas
+          o de intimidación que pueden repetirse y afectar a otra persona.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Puede presentarse como</h3>
+        <p>
+          Insultos, burlas, amenazas, golpes, exclusión intencional,
+          difusión de rumores o acoso mediante redes sociales.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>¿Qué hacer?</h3>
+        <p>
+          No guardes la situación en silencio. Habla con un adulto de confianza,
+          docente, familiar, orientador o profesional. Si existe peligro,
+          busca ayuda inmediatamente.
+        </p>
+      </div>
+
+      <div class="detail-block tip">
+        <h3>💡 Importante</h3>
+        <p>
+          El acoso no es culpa de quien lo recibe. Pedir ayuda es una forma
+          de protegerte.
+        </p>
+      </div>
+
+    `
+  },
+
+
+  relaciones:{
+    icon:'❤️',
+    title:'Relaciones saludables',
+    content:`
+
+      <div class="detail-block">
+        <h3>¿Cómo es una relación saludable?</h3>
+        <p>
+          Se basa en respeto, comunicación, confianza, libertad,
+          límites personales y consideración por las necesidades
+          de ambas personas.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Elementos importantes</h3>
+        <p>
+          Escuchar, respetar las decisiones del otro, expresar emociones,
+          resolver conflictos mediante el diálogo y respetar los límites.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Señales de alerta</h3>
+        <p>
+          Control excesivo, amenazas, humillaciones, aislamiento,
+          manipulación, miedo o presión para hacer cosas que no deseas.
+        </p>
+      </div>
+
+      <div class="detail-block tip">
+        <h3>💡 Recuerda</h3>
+        <p>
+          Una relación saludable debe permitirte sentir respeto,
+          seguridad y libertad.
+        </p>
+      </div>
+
+    `
+  },
+
+
+  redes:{
+    icon:'📱',
+    title:'Redes sociales',
+    content:`
+
+      <div class="detail-block">
+        <h3>¿Cómo pueden influir?</h3>
+        <p>
+          Las redes sociales pueden ayudarnos a comunicarnos y encontrar
+          información, pero un uso excesivo o compararnos constantemente
+          puede afectar nuestro bienestar emocional.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Señales de uso poco saludable</h3>
+        <p>
+          Revisar constantemente el celular, dormir menos por permanecer
+          conectado, sentir ansiedad al no recibir mensajes o compararte
+          continuamente con otras personas.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Hábitos saludables</h3>
+        <p>
+          Establece momentos sin pantalla, desactiva algunas notificaciones,
+          evita usar el celular durante toda la noche y dedica tiempo
+          a actividades fuera de internet.
+        </p>
+      </div>
+
+      <div class="detail-block tip">
+        <h3>💡 Recuerda</h3>
+        <p>
+          Lo que vemos en redes sociales no representa necesariamente
+          la vida completa de una persona.
+        </p>
+      </div>
+
+    `
+  },
+
+
+  bienestar:{
+    icon:'🌱',
+    title:'Bienestar emocional',
+    content:`
+
+      <div class="detail-block">
+        <h3>¿Qué significa?</h3>
+        <p>
+          El bienestar emocional está relacionado con reconocer nuestras
+          emociones, afrontar las dificultades y mantener relaciones
+          y hábitos que favorezcan nuestra calidad de vida.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Hábitos que pueden ayudar</h3>
+        <p>
+          Dormir bien, alimentarte adecuadamente, moverte durante el día,
+          tener momentos de descanso, mantener contacto con personas
+          de confianza y expresar lo que sientes.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h3>Ejemplo cotidiano</h3>
+        <p>
+          Después de una semana difícil puedes organizar un momento
+          de descanso, conversar con alguien cercano y realizar
+          una actividad que disfrutes.
+        </p>
+      </div>
+
+      <div class="detail-block tip">
+        <h3>💡 Recuerda</h3>
+        <p>
+          Cuidar tu bienestar emocional no significa estar feliz todo
+          el tiempo. Significa aprender a reconocer y afrontar
+          las diferentes emociones.
+        </p>
+      </div>
+
+    `
+  }
+
+};
+
+
+/* =========================
+   MODAL
+========================= */
+
+function openTopic(topic){
+
+  const data=topics[topic];
+
+  if(!data)return;
+
+  document.getElementById('modalIcon').textContent=data.icon;
+
+  document.getElementById('modalTitle').textContent=data.title;
+
+  document.getElementById('modalContent').innerHTML=data.content;
+
+  document.getElementById('topicModal').classList.add('show');
+
+  document.body.style.overflow='hidden';
+}
+
+function closeTopic(){
+
+  document.getElementById('topicModal').classList.remove('show');
+
+  document.body.style.overflow='';
+
+}
+
+document.getElementById('topicModal')
+.addEventListener('click',function(e){
+
+  if(e.target===this){
+    closeTopic();
+  }
+
+});
+
+document.addEventListener('keydown',function(e){
+
+  if(e.key==='Escape'){
+    closeTopic();
+  }
+
+});
+
+</script>
+
+</body>
+</html>               
